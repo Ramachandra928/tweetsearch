@@ -1,0 +1,18 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>{% blocktrans %}Search Results for "{{ tweet_phrase }}": {% endblocktrans %}</h2>
+    {% if num_times_searched > 1 %}
+      <h4>{% blocktrans %}Number of Times used: {{num_times_searched}}{% endblocktrans %}</h4>
+      <h4>{% blocktrans %}Last time used: {{last_time_used}}{% endblocktrans %}</h4>
+    {% endif %}
+    <ul>
+      {% for result in resultset %}
+        <li><span>{% trans "Result" %}: {{ result.text }}</span></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
